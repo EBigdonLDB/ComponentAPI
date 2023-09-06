@@ -261,7 +261,11 @@ class SearchBox extends HTMLElement {
               .search input::placeholder {   color: rgba(222,226,230,.5); }
               .content .options {   margin-top: 10px;   max-height: 250px;   overflow-y: auto;   padding-right: 7px; }
               .options button {   padding: 0 13px;   font-size: 1rem; }
-              .options button:hover, .options button:focus, li.selected {   border-radius: 5px;   background: rgba(222,226,230,.5); }`
+              .options button:hover, .options button:focus, li.selected {   border-radius: 5px;   background: rgba(222,226,230,.5); }
+              .options::-webkit-scrollbar {   width: 7px; }
+              .options::-webkit-scrollbar-track {   background: #f1f1f1;   border-radius: 25px; }
+              .options::-webkit-scrollbar-thumb {   background: #ccc;   border-radius: 25px; }
+              .options::-webkit-scrollbar-thumb:hover {   background: #b3b3b3; }`
         else
           myStyle.innerText = `
               button { background: none; border: none; padding: 0; font: inherit; width: 100% }
