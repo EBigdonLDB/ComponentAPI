@@ -71,7 +71,6 @@ class ProgressionBar extends HTMLElement {
     let speed = 60
 
     let progress = setInterval(() => {
-        console.log(progressStartValue, Math.floor((progressStartValue) / 100), colors[Math.floor((progressStartValue) / 100)])
       if (progressStartValue >= progressEndValue) {
         clearInterval(progress)
       } else {

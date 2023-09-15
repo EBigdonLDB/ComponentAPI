@@ -48,7 +48,6 @@ class DateTimePicker extends HTMLElement {
         minutes = '00'
       }
       const sumspan = this.shadow.querySelector('.timeElapsedSpan')
-      console.log(sumspan)
       sumspan.value = `${hours}:${
         String(minutes).length == 2 ? minutes : '0' + minutes
       }`
