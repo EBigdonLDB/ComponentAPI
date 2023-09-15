@@ -44,7 +44,7 @@ class SearchBox extends HTMLElement {
       document.location.href.includes('form') ||
       document.location.href.includes('index.html')
     ) {
-      if (!this.optionlist.startsWith('Keine Auswahl;   '))
+      if (!this.optionlist?.startsWith('Keine Auswahl;   '))
         this.optionlist = 'Keine Auswahl;   ' + this.optionlist
       this.render()
       this.addOptions(this.shadow)
