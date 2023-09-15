@@ -25,6 +25,12 @@ class ProgressionBar extends HTMLElement {
   set last(last) {
     this.setAttribute('last', last)
   }
+  get extra() {
+    return this.getAttribute('extra')
+  }
+  set extra(extra) {
+    this.setAttribute('extra', extra)
+  }
   get theme() {
     return this.getAttribute('theme')
   }
@@ -32,7 +38,7 @@ class ProgressionBar extends HTMLElement {
     this.setAttribute('theme', theme)
   }
   static get observedAttributes() {
-    return ['max', 'current', 'last', 'theme']
+    return ['max', 'current', 'last', 'extra', 'theme']
   }
   attributeChangedCallback(prop, oldVal, newVal) {
     this.render()
@@ -52,8 +58,8 @@ class ProgressionBar extends HTMLElement {
           timeResult += time
         }
       })
-      /*if (this.current != Number(timeResult) + Number(workedToday))
-        this.setAttribute('current', Number(timeResult) + Number(workedToday))*/
+      if (this.current != Number(timeResult) + Number(this.extra))
+        this.setAttribute('current', Number(timeResult) + Number(this.extra))
     }, 1000)
   }
   connectedCallback() {
@@ -66,9 +72,9 @@ class ProgressionBar extends HTMLElement {
     const colors = [backgroundColor, '#08c', '#49008a', '#8a0121', '#fc053f']
     let circularProgress = this.shadow.querySelector('.circular-progress')
     let progressValue = this.shadow.querySelector('.progress-value')
-    let progressStartValue = Math.round(this.last / this.max * 100)
+    let progressStartValue = this.last > this.current ? 0 : Math.round(this.last / this.max * 100)
     let progressEndValue = (this.current / this.max) * 100
-    let speed = 60
+    let speed = this.last > this.current ? 5 : 60
 
     let progress = setInterval(() => {
       if (progressStartValue >= progressEndValue) {
