@@ -59,7 +59,7 @@ class ProgressionBar extends HTMLElement {
         }
       })
       if (this.current != Number(timeResult) + Number(this.extra))
-        this.setAttribute('current', Number(timeResult) + Number(this.extra))
+        this.current = Number(timeResult) + Number(this.extra)
     }, 1000)
   }
   connectedCallback() {
