@@ -144,7 +144,7 @@ class DateTimePicker extends HTMLElement {
       if (this.theme == 'dark')
         myStyle.innerText = `
         .container { display: inline-block; position: relative; }
-        .timeElapsedSpan { height: 2.2rem; padding: 0 20px; font-size: 1rem; border-radius: 7px; justify-content: space-between; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); display: flex; align-items: center; cursor: pointer; background-repeat: no-repeat; background-position: right 0.75rem center; background-size: 16px 12px; border: 1px solid #ced4da; width: 13.7rem; text-align: center; }
+        .timeElapsedSpan { height: 2.2rem; padding: 0 20px; font-size: 1rem; border-radius: 7px; justify-content: space-between; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); display: flex; align-items: center; cursor: pointer; background-repeat: no-repeat; background-position: right 0.75rem center; background-size: 16px 12px; border: 1px solid #495057; width: 13.7rem; text-align: center; }
         .parent { margin-top: 0.5rem; display: none; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); grid-column-gap: 2rem; grid-row-gap: 1rem; border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(5.6px); -webkit-backdrop-filter: blur(5.6px); border: 1px solid #ced4da; padding: 1rem; }
         input { color: #ced4da; background: #3d3d3d; line-height: 1.5; font-size: .875rem; font-weight: 400; margin-top: 0.5rem; border-radius: 0.5rem; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(5.6px); -webkit-backdrop-filter: blur(5.6px); border: 1px solid #ced4da; padding: 0.375rem 0.75rem; }
         .date { grid-area: 1 / 1 / 2 / 3; display: flex; justify-content: center; align-items: center;}

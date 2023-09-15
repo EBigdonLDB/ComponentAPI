@@ -252,7 +252,7 @@ class SearchBox extends HTMLElement {
               .search i {   top: 60%;   left: 15px;   color: #fff;   font-size: 1rem;   pointer-events: none;   transform: translateY(-50%);   position: absolute; }
               .wrapper {   display: block;   width: 100%;   -moz-padding-start: calc(0.75rem - 3px);   font-size: 1rem;   font-weight: 400;   line-height: 1.5;   color: #fff;
                   background-color: #212529;   background-repeat: no-repeat;   background-position: right 0.75rem center;   background-size: 16px 12px;
-                  border: 1px solid #ced4da;   border-radius: 0.375rem;   transition: border-color 0.15s ease-in-out,     box-shadow 0.15s ease-in-out;   -moz-appearance: none;
+                  border: 1px solid #495057;   border-radius: 0.375rem;   transition: border-color 0.15s ease-in-out,     box-shadow 0.15s ease-in-out;   -moz-appearance: none;
                   appearance: none;   margin: 0;   font-family: inherit;   box-sizing: border-box; }
               .form-label {   margin-bottom: 0.5rem;   display: inline-block;   box-sizing: border-box;   cursor: default; }
               .mb-3 {   margin-bottom: 1rem !important;   box-sizing: border-box;   display: block; }
