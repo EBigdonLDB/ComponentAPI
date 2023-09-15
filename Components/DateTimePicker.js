@@ -33,26 +33,30 @@ class DateTimePicker extends HTMLElement {
     return ['endtime', 'starttime', 'date', 'theme']
   }
   attributeChangedCallback(prop, oldVal, newVal) {
-    try {
-      this.shadow.querySelector('.von').value = this.starttime
-      this.shadow.querySelector('.bis').value = this.endtime
-      this.shadow.querySelector('.date').value = this.date
-      let hours = this.endtime?.split(':')[0] - this.starttime?.split(':')[0]
-      let minutes = this.endtime?.split(':')[1] - this.starttime?.split(':')[1]
-      if (minutes < 0) {
-        hours = hours - 1
-        minutes = 60 + minutes
-      }
-      if(Number(hours) < 0) {
-        hours = '00'
-        minutes = '00'
-      }
-      const sumspan = this.shadow.querySelector('.timeElapsedSpan')
-      sumspan.value = `${hours}:${
-        String(minutes).length == 2 ? minutes : '0' + minutes
-      }`
-      saveTableValue()
-    } catch (ex) {}
+    if (prop == 'theme') this.render()
+    else {
+      try {
+        this.shadow.querySelector('.von').value = this.starttime
+        this.shadow.querySelector('.bis').value = this.endtime
+        this.shadow.querySelector('.date').value = this.date
+        let hours = this.endtime?.split(':')[0] - this.starttime?.split(':')[0]
+        let minutes =
+          this.endtime?.split(':')[1] - this.starttime?.split(':')[1]
+        if (minutes < 0) {
+          hours = hours - 1
+          minutes = 60 + minutes
+        }
+        if (Number(hours) < 0) {
+          hours = '00'
+          minutes = '00'
+        }
+        const sumspan = this.shadow.querySelector('.timeElapsedSpan')
+        sumspan.value = `${hours}:${
+          String(minutes).length == 2 ? minutes : '0' + minutes
+        }`
+        saveTableValue()
+      } catch (ex) {}
+    }
   }
   connectedCallback() {
     this.render()
