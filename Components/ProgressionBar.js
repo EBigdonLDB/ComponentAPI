@@ -120,7 +120,7 @@ class ProgressionBar extends HTMLElement {
       outerDiv.appendChild(wrapperDiv)
       outerDiv.appendChild(txtSpan)
       this.shadow.replaceChildren(outerDiv)
-      const myStyle = document.createElement('style') //background: #3d3d3d;#212529
+      const myStyle = document.createElement('style')
       if (this.theme == 'dark')
         myStyle.innerText = `
             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
