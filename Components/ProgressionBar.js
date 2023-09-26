@@ -83,7 +83,7 @@ class ProgressionBar extends HTMLElement {
           progressStartValue++
           progressValue.textContent = `${progressStartValue}%`
           circularProgress.style.background = `conic-gradient(${colors[Math.floor((progressStartValue - 1) / 100) + 1]} ${
-            (progressStartValue * 3.6) > 360 ? ((progressStartValue - 1) % 100 * 3.6) : (progressStartValue * 3.6) 
+            (progressStartValue * 3.6) > 360 ? ((progressStartValue - 1) % 100 * 3.6) : (progressStartValue * 3.6)
           }deg, ${colors[Math.floor((progressStartValue) / 100)]} 0deg)`
       }
     }, speed)
@@ -103,10 +103,14 @@ class ProgressionBar extends HTMLElement {
       valSpan.innerHTML = '0%'
       const txtSpan = document.createElement('span')
       txtSpan.setAttribute('class', 'progress-value')
-      const minutes = Math.round((this.current % 1) * 60)
-      const hours = this.current - (this.current % 1)
+      let minutes = Math.round((this.current % 1) * 60)
+      let hours =  Math.round(this.current - (this.current % 1))
+      if(minutes >= 60) {
+        hours += minutes / 60 - minutes / 60 % 1
+        minutes = minutes % 60
+      }
       const minutesMax = Math.round((this.max % 1) * 60)
-      const hoursMax = this.max - (this.max % 1)
+      const hoursMax =  Math.round(this.max - (this.max % 1))
       txtSpan.innerHTML = `${hours}:${
         String(minutes).length > 1 ? minutes : '0' + minutes
       } / ${hoursMax}:${
