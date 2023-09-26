@@ -33,6 +33,7 @@ class DateTimePicker extends HTMLElement {
     return ['endtime', 'starttime', 'date', 'theme']
   }
   attributeChangedCallback(prop, oldVal, newVal) {
+    console.log(prop)
     if (prop == 'theme') this.render()
     else {
       try {
