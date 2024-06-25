@@ -33,7 +33,6 @@ class DateTimePicker extends HTMLElement {
     return ['endtime', 'starttime', 'date', 'theme']
   }
   attributeChangedCallback(prop, oldVal, newVal) {
-    console.log(prop)
     if (prop == 'theme') this.render()
     else {
       try {
@@ -102,7 +101,7 @@ class DateTimePicker extends HTMLElement {
           [hrs, mins] = val
             .split(':')
             .map((d, i) =>
-              i == 1 ? (String(d).length < 2 ? '0' + String(d) : d) : d,
+              i == 1 ? (String(d).padStart(2,'0')) : d,
             )
         else if (/[,.]/.test(val))
           [hrs, mins] = val
@@ -110,8 +109,8 @@ class DateTimePicker extends HTMLElement {
             .map((d, i) => (i == 1 ? Math.ceil(Number('0.' + d) * 60) : d))
         else [hrs, mins] = [val, 0]
         hrs = String(Number(hrs) + Math.floor(mins / 60))
-        hrs = String(hrs).length < 2 ? '0' + String(hrs) : hrs
-        mins = String(mins % 60).length < 2 ? '0' + (mins % 60) : mins % 60
+        hrs = String(hrs).padStart(2,'0')
+        mins = String(mins % 60).padStart(2,'0') % 60
         const time = `${hrs}:${mins}`
         changeTimes('00:00', time)
         event.target.value = time
